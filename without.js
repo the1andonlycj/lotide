@@ -1,24 +1,12 @@
-/* //Original AssertEqual function:
+//Original AssertEqual function:
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !==  ${expected}`);
   }
-};  *///IF I PASS IN ANYTHING OTHER THAN THE WORDS ARRAY, THIS WILL NOT WORK.
+};  
 
-/* //EqArrays function: UNNECESSARY TO THIS FINAL CHECK.
-function eqArrays(array1, array2) {
-  //turn each array into a string
-  let string1 = array1.toString(); 
-  let string2 = array2.toString();
-  //compare strings
-  if (string1 === string2){
-    return true;
-  } else {
-    return false;
-  }
-}  */
 
 //AssertArraysEqual function:
  function assertArraysEqual(array1, array2) {
@@ -46,7 +34,7 @@ function without(source, itemsToRemove) {
       withoutArray.push(source[i]);
     }
   }
-  //return withoutArray;
+  return withoutArray;
 }
 
 const words = ["hello", "world", "lighthouse"];

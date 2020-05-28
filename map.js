@@ -1,6 +1,5 @@
 //Original AssertEqual function:
 const assertEqual = function(resultsArray) {
-  console.log(resultsArray);
   if (resultsArray[0] === "pass") {
     console.log(`✅✅✅ Assertion Passed: ${resultsArray[1]} === ${resultsArray[2]}`);
   } else {
@@ -25,8 +24,36 @@ const eqArrays = function(array1, array2) {
   return resultsArray;
 };
 
+//Added on AssertArraysEqual function
 const assertArraysEqual = function(array1, array2) {
   return assertEqual(eqArrays(array1, array2));
 }
 
 
+
+
+
+const words = ["ground", "control", "to", "major", "tom"];
+
+const map = function(array, callback) {
+  const results = [];
+  for (let item of array) {
+    results.push(callback(item));
+  }
+  return results;
+}
+
+const results1 = map(words, word => word[0]);
+console.log(results1);
+assertArraysEqual(
+  map(words, (word) => word[0]), //map can do a lot of different stuff, so these smaller arrow
+  ['g', 'c', 't', 'm', 't'] //definitions allow us to switch it up more quickly, and then deploy the above.
+);
+assertArraysEqual(
+  map(words, (word) => word.length),
+  [6, 7, 2, 5, 3]
+);
+assertArraysEqual(
+  map(words, (word) => word[0]),
+  [1]
+);

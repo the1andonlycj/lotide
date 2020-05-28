@@ -19,7 +19,7 @@ function assertArraysEqual(array1, array2) {
   let string1 = array1.toString(); 
   let string2 = array2.toString();
   //compare strings
-  if (string1 === string2){
+  if (string1 === string2) {
     return true;
   } else {
     return false;
