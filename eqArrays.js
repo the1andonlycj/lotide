@@ -7,20 +7,22 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-//New eqArrays function:
+
 function eqArrays(array1, array2) {
-  //turn each array into a string
-  let string1 = array1.toString(); 
-  let string2 = array2.toString();
-  console.log("String1 is: " + string1);
-  console.log("String2 is: " + string2);
-  //compare strings
-  if (string1 === string2){
-    return true;
-  } else {
+  if (array1.length !== array2.length) {
     return false;
+  } else {
+    for (var i = 0; array1.length < i; i ++) {
+      if (array1[i] !== array2[i]) {
+        return false;
+      }
+    }
   }
-} 
-assertEqual(eqArrays([1, 2, 3, 8], [1, 2, 3]), true); 
+  return true;
+};
+
+
+
+assertEqual(eqArrays([1, 2, 8] , [1, 2, 3]), true); 
 
 
