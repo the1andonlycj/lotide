@@ -1,13 +1,34 @@
-//New assertArraysEqual function:
-function assertArraysEqual(array1, array2) {
-  //turn each array into a string
-  let string1 = array1.toString(); 
-  let string2 = array2.toString();
-  //compare strings
-  if (string1 === string2){
-    return true;
+//Original AssertEqual function:
+const assertEqual = function(resultsArray) {
+  console.log(resultsArray);
+  if (resultsArray[0] === "pass") {
+    console.log(`✅✅✅ Assertion Passed: ${resultsArray[1]} === ${resultsArray[2]}`);
   } else {
-    return false;
+    console.log(`🛑🛑🛑 Assertion Failed: ${resultsArray[1]} !==  ${resultsArray[2]}`);
   }
-} 
-console.log(assertArraysEqual([0, 2, 3], [1, 2, 3])); 
+};
+
+//Added on eqArrays function:
+const eqArrays = function(array1, array2) {
+  if (array1.length !== array2.length) {
+    const resultsArray = ["fail", array1, array2];
+    return resultsArray;
+  } else {
+    for (var i = 0; i < array1.length; i ++) {
+      if (array1[i] !== array2[i]) {
+        const resultsArray = ["fail", array1, array2];
+        return resultsArray;
+      }
+    }
+  }
+  const resultsArray = ["pass", array1, array2];
+  return resultsArray;
+};
+
+const assertArraysEqual = function(array1, array2) {
+  return assertEqual(eqArrays(array1, array2));
+}
+
+assertArraysEqual([1, 2, 3] , [1, 2, 3]); 
+
+
